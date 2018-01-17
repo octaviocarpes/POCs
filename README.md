@@ -26,3 +26,22 @@ http://localhost:8080
 This is the Springboot POC with a feature of Springboot called Secure Web. This POC works like the other, the only difference is that this one makes a user authentication.
 ### How to Use it?
 Run the project and then enter http://localhost:8080 into your browser and try to login. To make the login you must enter "user" for user and "password" for the password, otherwise it will not display the hello.html page.
+
+## POC-Springboot-EmailService
+This POC send emails with javamail. In this POC i used Springboot to test the service through the endpoints /simpleemail, /simpleemail2 and /simpleemail3. Each one of those endpoints sends a different type of email like with attachments or an HTML body.<br>
+<strong>Reference: </strong><a href="https://www.quickprogrammingtips.com/spring-boot/how-to-send-email-from-spring-boot-applications.html">How to Send Email From Spring Boot Applications</a>
+
+### How to Use it?
+Just run the project and enter into one of this endpoints:
+<ul>
+  <li>
+    <a href="http://localhost:8080/simpleemail">/simpleemail</a>
+  </li>
+  <li>
+    <a href="http://localhost:8080/simpleemail2">/simpleemail2</a>
+  </li>
+  <li>
+    <a href="http://localhost:8080/simpleemail3">/simpleemail3</a>
+  </li>
+</ul>
+that the API will do the magic.
