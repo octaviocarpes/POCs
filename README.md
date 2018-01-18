@@ -45,3 +45,6 @@ Just run the project and enter into one of this endpoints:
   </li>
 </ul>
 that the API will do the magic.
+
+## Resources and useful links that i found during my studies
+<a href="https://start.spring.io/">spring initializr</a>
