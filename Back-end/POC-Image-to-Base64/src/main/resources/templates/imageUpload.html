@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>This is a super poc that uploads an image and converts it into a base64 String!</h1>
+
+<input id="inp" type='file'>
+<input id="inp-name" type="text">
+<p id="b64"></p>
+<img id="img" height="150">
+
+<button id="upload-button" onclick="uploadFile()">Upload this image to our database!</button>
+
+</body>
+<script>
+    function readFile() {
+
+        if (this.files && this.files[0]) {
+
+            var FR= new FileReader();
+
+            FR.addEventListener("load", function(e) {
+                document.getElementById("img").src       = e.target.result;
+                document.getElementById("b64").innerHTML = e.target.result;
+            });
+
+            FR.readAsDataURL( this.files[0] );
+        }
+
+    }
+
+
+
+    function uploadFile(){
+        var base64String = document.getElementById("b64").innerText;
+        sendPost(base64String);
+    }
+
+    function sendPost(base64String) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", 'http://localhost:8080/uploadImage');
+        xhr.onreadystatechange = function() {//Call a function when the state changes.
+            if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+               console.log('Success!');
+            }
+        }
+        xhr.send(base64String.toString());
+    }
+
+
+    document.getElementById("inp").addEventListener("change", readFile);
+
+
+
+
+</script>
+</html>
